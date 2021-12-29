@@ -16,9 +16,9 @@ public class ScreenWrapping : MonoBehaviour
     { 
         if(renderers.Count <= 0) renderers.Add(GetComponent<Renderer>());
         cam = FindObjectOfType<Camera>(); 
-    } 
-    private void Update() => ScreenWrap();
+    }
 
+    private void Update() { if(cam != null) ScreenWrap(); }
     private void ScreenWrap()
     {
         var isVisible = CheckRenderers();

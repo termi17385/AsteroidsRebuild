@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Asteroids.Managers;
+﻿using Asteroids.Managers;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -27,7 +24,11 @@ namespace Asteroids.asteroid
                     newRotation.x = newRotation.y = 0;
                     
                     spawnedObj.transform.rotation = newRotation;
-                    spawnedObj.transform.SetParent(gameManager.transform);
+                    if (gameManager != null)
+                    {
+                        spawnedObj.GetComponent<AsteroidController>().gameManager = this.gameManager;
+                        spawnedObj.transform.SetParent(gameManager.transform);
+                    }
                     spawnedObj.transform.localScale = transform.localScale / 2;
                     
                     spawnedObj.GetComponent<AsteroidController>().largeAsteroid = false;

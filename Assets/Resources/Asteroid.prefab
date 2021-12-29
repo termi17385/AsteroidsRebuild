@@ -15,9 +15,9 @@ GameObject:
   - component: {fileID: 701476890413844906}
   - component: {fileID: 1897126596562849263}
   - component: {fileID: 5469813370979404327}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Asteroid
-  m_TagString: Untagged
+  m_TagString: Asteroid
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -177,7 +177,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -231,3 +231,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameManager: {fileID: 0}
+  largeAsteroid: 1
