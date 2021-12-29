@@ -18,7 +18,7 @@ public class AsteroidsTest
     }
   
     [UnityTest]
-    public IEnumerator AsteroidSpawn()
+    public IEnumerator AsteroidSpawned()
     {
         for (int i = 0; i < 5; i++)
         {
@@ -32,6 +32,21 @@ public class AsteroidsTest
         }
         yield return new WaitForSeconds(4);
         yield return null;
+    }
+    
+    [UnityTest]
+    public IEnumerator AsteroidMovement()
+    {
+        var ast = AsteroidSpawner.ast_Spawner.SpawnAsteroidAndSetup();
+        var initialPos = ast.transform.position;
+        #region Parenting Object
+        ast.transform.SetParent(game.transform);
+        var transformPosition = ast.transform.position;
+        transformPosition.z = 0; ast.transform.position = transformPosition;
+        #endregion
+
+        yield return new WaitForSeconds(5);
+        UnityEngine.Assertions.Assert.AreNotEqual(initialPos, ast.transform.position);
     }
 
     [UnityTest]
